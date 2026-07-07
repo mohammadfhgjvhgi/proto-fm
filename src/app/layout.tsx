@@ -3,6 +3,7 @@ import { Inter, JetBrains_Mono, Noto_Sans_Arabic, Space_Grotesk } from "next/fon
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { LanguageProvider } from "@/components/site/language-provider";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -71,6 +72,7 @@ export default function RootLayout({
         className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${notoSansArabic.variable} antialiased`}
       >
         <LanguageProvider>{children}</LanguageProvider>
+        <Analytics />
         <Toaster />
       </body>
     </html>

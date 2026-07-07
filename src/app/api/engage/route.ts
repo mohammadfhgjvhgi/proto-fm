@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { db } from "@/lib/db";
 import { rateLimit, getClientIp } from "@/lib/rate-limit";
+import { sendEngageEmail } from "@/lib/email";
 import { createHash } from "crypto";
 
 /**
@@ -85,6 +86,15 @@ export async function POST(request: Request) {
 
     // Log only non-PII metadata (use warn to satisfy no-console rule — intentional logging)
     console.warn("[engage] new submission:", record.id, record.path);
+
+    // Send email notification (falls back to DB-only if RESEND_API_KEY not set)
+    await sendEngageEmail({
+      name: parsed.data.name,
+      email: parsed.data.email,
+      path: parsed.data.path,
+      fields: parsed.data.fields,
+      submissionId: record.id,
+    });
 
     return NextResponse.json(
       {
