@@ -68,3 +68,9 @@ db/*.db-journal
 
 # Uploaded source files (private)
 /upload/
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
