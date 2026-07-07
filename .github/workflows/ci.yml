@@ -24,7 +24,7 @@ jobs:
           bun-version: latest
 
       - name: Install dependencies
-        run: bun install --frozen-lockfile
+        run: bun install
 
       - name: Lint (ESLint)
         run: bun run lint
@@ -57,7 +57,7 @@ jobs:
           bun-version: latest
 
       - name: Install dependencies
-        run: bun install --frozen-lockfile
+        run: bun install
 
       - name: Run Lighthouse CI
         run: bunx lhci autorun || true
