@@ -27,3 +27,19 @@ model Post {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+// ===== Engage form submissions (Phase 2: replaces in-memory array) =====
+model Submission {
+  id        String   @id @default(cuid())
+  path      String   // review | consult | build | refer
+  name      String
+  email     String
+  fields    String   @default("{}") // JSON string of extra fields
+  ipHash    String?  // hashed IP for rate limiting (no raw IP stored)
+  status    String   @default("new") // new | read | archived
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([path])
+  @@index([status])
+}
