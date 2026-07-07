@@ -145,6 +145,7 @@ function EngageForm({ path }: { path: PathKey }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [fieldValues, setFieldValues] = useState<Record<string, string>>({});
+  const [honeypot, setHoneypot] = useState(""); // bot trap — must stay empty
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -156,16 +157,20 @@ function EngageForm({ path }: { path: PathKey }) {
       const res = await fetch("/api/engage", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ path, name, email, fields: fieldValues }),
+        body: JSON.stringify({ path, name, email, fields: fieldValues, website: honeypot }),
       });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
-        throw new Error(data?.error ?? "Request failed");
+        if (res.status === 429) {
+          throw new Error(lang === "ar" ? "تجاوزت الحد المسموح. حاول بعد ساعة." : "Rate limit exceeded. Try in 1 hour.");
+        }
+        throw new Error(data?.error ?? (lang === "ar" ? "تعذّر الإرسال." : "Request failed"));
       }
       setStatus("success");
       setName("");
       setEmail("");
       setFieldValues({});
+      setHoneypot("");
     } catch (err) {
       setStatus("error");
       setErrorMsg(err instanceof Error ? err.message : String(err));
@@ -233,6 +238,20 @@ function EngageForm({ path }: { path: PathKey }) {
           {t.error} {errorMsg && <span className="font-mono text-xs">({errorMsg})</span>}
         </p>
       )}
+
+      {/* Honeypot — hidden from humans, bots fill it */}
+      <div aria-hidden className="absolute -left-[9999px] -top-[9999px] h-0 w-0 overflow-hidden">
+        <label>
+          Website (leave empty)
+          <input
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+            value={honeypot}
+            onChange={(e) => setHoneypot(e.target.value)}
+          />
+        </label>
+      </div>
 
       <div>
         <button

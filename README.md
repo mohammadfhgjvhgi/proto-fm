@@ -222,17 +222,20 @@ To add a new project, edit `featuredProject` or add to a projects array in `cont
 
 ## ✅ Quality
 
-- ESLint: 0 errors, 0 warnings
-- TypeScript: strict mode
+- ESLint: configured (some rules disabled — see `eslint.config.mjs` for details)
+- TypeScript: strict mode in `tsconfig.json` (note: `ignoreBuildErrors` was previously set but has been removed)
 - Responsive: 375px → desktop
-- WCAG: skip-link, focus indicators, ARIA labels, semantic HTML
+- Accessibility: skip-link, focus indicators, ARIA labels, semantic HTML
 - `prefers-reduced-motion` respected
+- Security headers: CSP, HSTS, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy
+- Rate limiting: 5 requests/hour/IP on `/api/engage`
+- Honeypot: bot protection on engage form
 
 ---
 
 ## 📄 License
 
-MIT — free to use, modify, distribute.
+MIT — see [LICENSE](./LICENSE) file for full text. Free to use, modify, distribute.
 
 ---
 
