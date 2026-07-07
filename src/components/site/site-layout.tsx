@@ -3,11 +3,13 @@
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { Navbar } from "./navbar";
 import { Footer } from "./footer";
+import { PrivacyConsent } from "./privacy-consent";
 
 /**
  * SiteLayout — shared shell for every page.
  * Sticky footer: root wrapper min-h-screen flex flex-col;
  * main flex-1; footer uses mt-auto.
+ * Includes privacy consent banner (GDPR).
  */
 export function SiteLayout({ children }: { children: React.ReactNode }) {
   useScrollReveal();
@@ -21,6 +23,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
         {children}
       </main>
       <Footer />
+      <PrivacyConsent />
     </div>
   );
 }
