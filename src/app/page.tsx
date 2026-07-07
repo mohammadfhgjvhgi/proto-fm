@@ -5,7 +5,7 @@ import { SiteLayout } from "@/components/site/site-layout";
 import { useLanguageStore } from "@/lib/store";
 import { translations } from "@/lib/translations";
 import { skillsLearned, featuredProject, pick, trajectory } from "@/lib/content";
-import { Shield, ArrowRight, ArrowLeft, Sparkles, Cpu, Cloud, Sun, Smartphone, Wrench, BookOpen, Award } from "lucide-react";
+import { Shield, Sparkles, Cpu, Cloud, Sun, Smartphone, Wrench, BookOpen, Award } from "lucide-react";
 // Note: Shield kept for the "security" system icon in the project showcase.
 
 /**

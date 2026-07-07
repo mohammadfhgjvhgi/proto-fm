@@ -258,7 +258,7 @@ function CodeBlock({
   snippet,
   copyLabel,
   copiedLabel,
-  codeLabel,
+  codeLabel: _codeLabel,
 }: {
   snippet: CodeSnippet;
   copyLabel: string;

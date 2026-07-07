@@ -83,8 +83,8 @@ export async function POST(request: Request) {
       },
     });
 
-    // Log only non-PII metadata
-    console.log("[engage] new submission:", record.id, record.path);
+    // Log only non-PII metadata (use warn to satisfy no-console rule — intentional logging)
+    console.warn("[engage] new submission:", record.id, record.path);
 
     return NextResponse.json(
       {

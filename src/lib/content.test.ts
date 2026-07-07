@@ -24,12 +24,12 @@ import {
   featuredProject,
   costBreakdown,
   dipSwitchModes,
-  futureDevelopments,
+  futureDevelopments as _futureDevelopments,
   solarSpecs,
   academicSubjects,
   academicSummary,
   universityPlan,
-  professionalGoals,
+  professionalGoals as _professionalGoals,
 } from "./content";
 
 describe("content structure integrity", () => {
