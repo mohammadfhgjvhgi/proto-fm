@@ -58,9 +58,10 @@ server.log
 db/*.db
 db/*.db-journal
 
-# Uploads / storage (user files)
+# Uploads / storage (user files — media, images, videos)
 /storage/
 /uploads/
+!/storage/.gitkeep
 
 # Build artifacts
 /.zscripts/
