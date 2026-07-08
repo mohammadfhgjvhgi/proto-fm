@@ -1,0 +1,41 @@
+{
+  "name": "محمد عادل العقيلي — هوية هندسية",
+  "short_name": "MA Identity",
+  "description": "منصة الهوية الهندسية الاحترافية — تكنولوجيا المباني الذكية",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0a0a0f",
+  "theme_color": "#0a0a0f",
+  "dir": "rtl",
+  "lang": "ar",
+  "categories": ["education", "productivity", "developer"],
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "الأدلة",
+      "short_name": "Proof",
+      "url": "/proof",
+      "description": "فهرس الأدلة — كل ادعاء له دليل"
+    },
+    {
+      "name": "المشاريع",
+      "short_name": "Projects",
+      "url": "/projects",
+      "description": "المشاريع الموثقة"
+    },
+    {
+      "name": "التواصل",
+      "short_name": "Engage",
+      "url": "/engage",
+      "description": "تواصل مباشر"
+    }
+  ]
+}

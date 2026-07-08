@@ -4,6 +4,7 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { LanguageProvider } from "@/components/site/language-provider";
 import { Analytics } from "@vercel/analytics/next";
+import { ServiceWorkerRegister } from "@/components/site/sw-register";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -48,6 +49,7 @@ export const metadata: Metadata = {
     "هندسة",
   ],
   authors: [{ name: "Mohammed Adil Alakaly" }],
+  manifest: "/manifest.json",
   openGraph: {
     title: "مهندس محمد عادل العقيلي — تكنولوجيا المباني الذكية",
     description:
@@ -72,6 +74,7 @@ export default function RootLayout({
         className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${notoSansArabic.variable} antialiased`}
       >
         <LanguageProvider>{children}</LanguageProvider>
+        <ServiceWorkerRegister />
         <Analytics />
         <Toaster />
       </body>

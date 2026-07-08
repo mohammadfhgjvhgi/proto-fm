@@ -29,17 +29,17 @@ const eslintConfig = [...nextCoreWebVitals, ...nextTypescript, {
     // Console — warn in dev, allow with eslint-disable for intentional logging
     "no-console": ["warn", { allow: ["warn", "error"] }],
 
-    // TypeScript — still relaxed but improving
-    "@typescript-eslint/no-explicit-any": "off", // Phase 3.5: needs type refactor
-    "@typescript-eslint/no-non-null-assertion": "off",
-    "@typescript-eslint/ban-ts-comment": "off",
+    // TypeScript — reactivated (Phase 4 final)
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/no-non-null-assertion": "warn",
+    "@typescript-eslint/ban-ts-comment": "warn",
     "@typescript-eslint/prefer-as-const": "off",
     "@typescript-eslint/no-unused-disable-directive": "off",
 
     // React rules
     "react-hooks/exhaustive-deps": "warn", // Phase 3: warn (not error) to avoid blocking
     "react-hooks/purity": "off",
-    "react/no-unescaped-entities": "off",
+    "react/no-unescaped-entities": "warn",
     "react/display-name": "off",
     "react/prop-types": "off",
     "react-compiler/react-compiler": "off",

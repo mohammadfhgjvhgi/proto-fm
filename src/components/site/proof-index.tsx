@@ -97,7 +97,7 @@ export function ProofIndex() {
               className="pointer-events-none absolute -top-8 font-display text-[12rem] leading-none text-[var(--surface-3)]"
               aria-hidden
             >
-              "
+              &quot;
             </span>
 
             <div className="relative grid gap-10 md:grid-cols-2">

@@ -46,7 +46,7 @@ export function rateLimit(ip: string): { allowed: boolean; remaining: number; re
 /** Extract client IP from request (handles proxies). */
 export function getClientIp(request: Request): string {
   const forwarded = request.headers.get("x-forwarded-for");
-  if (forwarded) return forwarded.split(",")[0]!.trim();
+  if (forwarded) return (forwarded.split(",")[0] ?? "unknown").trim();
   const realIp = request.headers.get("x-real-ip");
   if (realIp) return realIp.trim();
   return "unknown";
